@@ -1,12 +1,10 @@
 package il.ac.hit.final_project.entity;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import java.time.LocalDateTime;
 
 // LogEntry.java
 @Entity
@@ -15,22 +13,15 @@ public class LogEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String route;
-    private LocalDateTime timestamp;
+    private String date;
 
-    public LogEntry(Long id, String route, LocalDateTime timestamp) {
-        this.id = id;
+    public LogEntry(String route, String date) {
         this.route = route;
-        this.timestamp = timestamp;
+        this.date = date;
     }
 
     public LogEntry() {
 
-    }
-
-    public void setMessage(String message) {
-    }
-
-    public void setTimestamp(LocalDateTime now) {
     }
 
     public Long getId() {
@@ -41,7 +32,6 @@ public class LogEntry {
         this.id = id;
     }
 
-
     public String getRoute() {
         return route;
     }
@@ -50,8 +40,12 @@ public class LogEntry {
         this.route = route;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
@@ -59,9 +53,7 @@ public class LogEntry {
         return "LogEntry{" +
                 "id=" + id +
                 ", route='" + route + '\'' +
-                ", timestamp=" + timestamp +
+                ", date=" + date +
                 '}';
     }
-
-    // getters and setters
 }

@@ -4,9 +4,11 @@ import il.ac.hit.final_project.entity.LogEntry;
 import il.ac.hit.final_project.repository.LogEntryRepository;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 // LogController.java
 @RestController
