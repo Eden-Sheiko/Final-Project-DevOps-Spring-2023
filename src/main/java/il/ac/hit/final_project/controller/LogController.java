@@ -2,12 +2,9 @@ package il.ac.hit.final_project.controller;
 
 import il.ac.hit.final_project.entity.LogEntry;
 import il.ac.hit.final_project.repository.LogEntryRepository;
-import org.springframework.http.MediaType;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import java.time.LocalDateTime;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 // LogController.java
@@ -26,13 +23,9 @@ public class LogController {
         return logEntryRepository.findAll();
     }
 
-    @PostMapping(consumes = "application/json")
-    public LogEntry createLogEntry(@RequestBody LogEntry logEntry) {
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public LogEntry createLogEntry(@Valid @RequestBody LogEntry logEntry) {
+        System.out.println(logEntry);
         return logEntryRepository.save(logEntry);
     }
 }
-
-//    @PostMapping(path = "/your-endpoint", consumes = "application/x-www-form-urlencoded")
-//    public ResponseEntity<?> yourHandlerMethod(@RequestBody MultiValueMap<String, String> formData) {
-//        // Handle the form data here
-//    }

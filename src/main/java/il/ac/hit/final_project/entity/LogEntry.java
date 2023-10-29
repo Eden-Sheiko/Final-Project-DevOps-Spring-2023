@@ -1,10 +1,10 @@
 package il.ac.hit.final_project.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 // LogEntry.java
 @Entity
@@ -12,7 +12,9 @@ public class LogEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String route;
+    @NotBlank
     private String date;
 
     public LogEntry(String route, String date) {
